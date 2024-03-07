@@ -22,23 +22,27 @@ public class Car {
         System.out.println("현재 속도는 " + currentSpeed + "km 입니다.");
     }
 
+    void printCurrentSpeed() {
+        System.out.println("현재 속도는 " + this.speed + "km 입니다.");
+    }
+
     void speedUp(int increaseSpeed) {
          this.speed += increaseSpeed;
         if (this.speed >= 100) {
-            System.out.println("현재 속도는 " + this.speed + "km 입니다.");
+            printCurrentSpeed();
             System.out.println("과속입니다.");
         } else {
-            System.out.println("현재 속도는 " + this.speed + "km 입니다.");
+            printCurrentSpeed();
         }
     }
 
     void stop(int decreaseSpeed) {
         this.speed -= decreaseSpeed;
         if (this.speed > 0) {
-            System.out.println("현재 속도는 " + this.speed + "km 입니다.");
+            printCurrentSpeed();
         } else {
             this.speed = 0;
-            System.out.println("현재 속도는 " + this.speed + "km 입니다.");
+            printCurrentSpeed();
             System.out.println("멈췄습니다.");
         }
     }
