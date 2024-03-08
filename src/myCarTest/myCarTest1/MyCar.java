@@ -1,4 +1,4 @@
-package myCarTest;
+package myCarTest.myCarTest1;
 
 public class MyCar {
     public static void main(String[] args) {
