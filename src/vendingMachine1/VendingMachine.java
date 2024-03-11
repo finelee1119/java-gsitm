@@ -1,4 +1,4 @@
-package vendingMachine.vendingMachine1;
+package vendingMachine1;
 
 import java.util.Scanner;
 
