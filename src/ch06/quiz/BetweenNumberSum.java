@@ -18,23 +18,18 @@ public class BetweenNumberSum {
 
             // 두 수 사이의 합 구하기
             int sum = 0;
-            if (num1 < num2) {
-                for (int i = num1; i <= num2; i++) {
-                    sum += i;
-                }
-                System.out.println("두 수 " + num1 + "부터 " + num2 + " 까지 합은 " + sum + " 입니다.");
-            } else {
-                // 숫자 순서 바꾸기
+
+            // 두 수를 비교해 숫자 순서 바꾸기
+            if (num1 > num2) {
                 int tmp = num1;
                 num1 = num2;
                 num2 = tmp;
-
-                // 합 구하기
-                for (int i = num1; i <= num2; i++) {
-                    sum += i;
-                }
-                System.out.println("두 수 " + num1 + "부터 " + num2 + " 까지 합은 " + sum + " 입니다.");
             }
+
+            for (int i = num1; i <= num2; i++) {
+                sum += i;
+            }
+            System.out.println("두 수 " + num1 + "부터 " + num2 + " 까지 합은 " + sum + " 입니다.");
 
             // 계속할지 중단할지
             System.out.print("계속하시겠습니까?(Y/N) : ");
