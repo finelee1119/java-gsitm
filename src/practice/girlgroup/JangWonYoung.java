@@ -1,4 +1,4 @@
-package girlgroup;
+package practice.girlgroup;
 
 public class JangWonYoung {
     // 멤버 변수

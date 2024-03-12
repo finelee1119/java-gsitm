@@ -1,9 +1,9 @@
-package vendingMachine.vendingMachine0;
+package practice.vendingMachine.vendingMachine0;
 
-public class ColaVendingMachine {
-    final String name = "콜라";
+public class VMachine {
+    String name;
     int currentMoney = 0; // 투입 금액
-    int productPrice = 500; // 콜라 가격
+    int productPrice; // 상품 가격
 
     void insertMoney(int money) {
         currentMoney = currentMoney + money;

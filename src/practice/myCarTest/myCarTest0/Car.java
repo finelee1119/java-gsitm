@@ -1,4 +1,4 @@
-package myCarTest.myCarTest0;
+package practice.myCarTest.myCarTest0;
 
 public class Car {
     final String brand = "현대";

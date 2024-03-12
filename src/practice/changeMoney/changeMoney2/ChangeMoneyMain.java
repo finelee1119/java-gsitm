@@ -1,4 +1,4 @@
-package changeMoney.changeMoney2;
+package practice.changeMoney.changeMoney2;
 
 public class ChangeMoneyMain {
     static int currentMoney = 135200;

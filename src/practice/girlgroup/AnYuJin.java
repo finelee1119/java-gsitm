@@ -1,4 +1,4 @@
-package girlgroup;
+package practice.girlgroup;
 
 public class AnYuJin {
     // 멤버 변수 (속성)

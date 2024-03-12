@@ -1,4 +1,4 @@
-package changeMoney.changeMoney1;
+package practice.changeMoney.changeMoney1;
 
 public class ChangeMoney {
 

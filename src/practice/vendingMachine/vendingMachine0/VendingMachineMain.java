@@ -1,4 +1,4 @@
-package vendingMachine.vendingMachine0;
+package practice.vendingMachine.vendingMachine0;
 
 public class VendingMachineMain {
     static int totalMoney = 0;

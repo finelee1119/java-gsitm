@@ -1,4 +1,4 @@
-package girlgroup;
+package practice.girlgroup;
 
 public class Ive {
     static void danceAndSing(String name) {

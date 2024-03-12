@@ -1,4 +1,4 @@
-package myCarTest.myCarTest1;
+package practice.myCarTest.myCarTest1;
 
 public class Car {
     // 멤버변수

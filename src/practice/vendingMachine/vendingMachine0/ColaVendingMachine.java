@@ -1,16 +1,16 @@
-package vendingMachine.vendingMachine0;
+package practice.vendingMachine.vendingMachine0;
 
-public class CiderVendingMachine {
-    final String name = "사이다";
+public class ColaVendingMachine {
+    final String name = "콜라";
     int currentMoney = 0; // 투입 금액
-    int productPrice = 700; // 사이다 가격
+    int productPrice = 500; // 콜라 가격
 
     void insertMoney(int money) {
         currentMoney = currentMoney + money;
         currentMoneyPrint();
     }
 
-    void serveCider() {
+    void serveCola() {
         if (currentMoney < productPrice) {
             System.out.println("잔액이 부족합니다.");
         } else {
