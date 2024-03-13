@@ -16,13 +16,16 @@ public class BubbleSort0 {
                     flag = false;
                 }
             }
-            if (flag)  break; {
-                System.out.print(i+1 + " 번째 회전: ");
-                for (int data : sortData) {
-                    System.out.print(data + " ");
-                }
-                System.out.println();
+            if (flag) {
+                break;
             }
+
+            System.out.print(i+1 + " 번째 회전: ");
+            for (int data : sortData) {
+                System.out.print(data + " ");
+            }
+            System.out.println();
+
         }
 
     }

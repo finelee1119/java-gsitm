@@ -2,31 +2,29 @@ package practice.sort;
 
 public class SelectionSort1 {
     public static void main(String[] args) {
-        int[] num = {9,6,7,3,5};
-        int sortNum;
-        int tmp;
-        boolean flag;
+        int[] num = {9, 6, 7, 3, 5};
 
-     
+        // 선택 정렬
+        for (int i = 0; i < num.length - 1; i++) {
+            int minIndex = i; // 최솟값의 인덱스를 저장하는 변수
 
-            // 최솟값 구하기
-            sortNum = num[0];
-
-            for (int i = 0; i < num.length - 1; i++) {
-                if (num[i] > num[i+1]) {
-                    sortNum = num[i+1];
+            // 최솟값 찾기
+            for (int j = i + 1; j < num.length; j++) {
+                if (num[j] < num[minIndex]) {
+                    minIndex = j;
                 }
             }
 
-            tmp = sortNum;
-            sortNum = num[0];
-            num[0] = tmp;
+            // 최솟값을 현재 위치로 이동
+            int tmp = num[minIndex];
+            num[minIndex] = num[i];
+            num[i] = tmp;
+        }
 
-
-        System.out.println("정렬 대상: " + sortNum);
-
+        // 정렬된 배열 출력
+        System.out.print("정렬 후: ");
         for (int i = 0; i < num.length; i++) {
-            System.out.println(num[i]);
+            System.out.print(num[i] + " ");
         }
     }
 }
