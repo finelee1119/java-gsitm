@@ -2,7 +2,7 @@ package practice.LegacyVendingMachine;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main0 {
     // 초기값 세팅
     static Scanner scanner = new Scanner(System.in);
     static final int MAX = 5; // 최대로 취급 가능한 제품 수
