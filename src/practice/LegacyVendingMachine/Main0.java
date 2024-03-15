@@ -83,16 +83,14 @@ public class Main0 {
             // 메뉴번호에 따라 처리하기
             if (actionNum == 1) {
                 System.out.println("계속 구매하기를 선택하셨습니다.");
-                continue;
-            } else if (actionNum == 2) {
+            } else if (actionNum == 2) { // 변수 추가
                 System.out.print("추가 금액: ");
-                currentMoney = scanner.nextInt();
-                System.out.println("현재 잔액은 " + currentMoney + "원 입니다.");
-                continue;
+                int plusMoney = scanner.nextInt();
+                int totalMoney = currentMoney + plusMoney;
+                System.out.println("현재 잔액은 " + totalMoney + "원 입니다.");
             } else if (actionNum == 3) {
                 System.out.println("남은 돈 " + currentMoney + "원이 반환됩니다. \n감사합니다. 다음에 또 이용해주세요.");
                 inputMoney = true;
-                continue;
             }
         }
     }
