@@ -64,7 +64,7 @@ public class SortTest {
     }
 
     private static void insertionSort(int[] arr) {
-        int last = arr.length;
+        int last = arr.length; // 5
 
         for (int i = 1; i < last; ++i) {  // 기준값 : 두번째 값 ~> 마지막 값 (전체 순회)
             int key = arr[i]; // 기준값
