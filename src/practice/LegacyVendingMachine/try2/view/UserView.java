@@ -1,7 +1,7 @@
-package practice.LegacyVendingMachine.ver1.view;
+package practice.LegacyVendingMachine.try2.view;
 
 import java.util.Scanner;
-import practice.LegacyVendingMachine.ver1.service.UserService;
+import practice.LegacyVendingMachine.try2.service.UserService;
 
 public class UserView {
     private Scanner scanner = new Scanner(System.in);

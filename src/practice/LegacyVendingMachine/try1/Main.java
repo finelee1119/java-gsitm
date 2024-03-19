@@ -1,9 +1,9 @@
-package practice.LegacyVendingMachine.ver0;
+package practice.LegacyVendingMachine.try1;
 
-import practice.LegacyVendingMachine.ver0.service.AdminService;
-import practice.LegacyVendingMachine.ver0.service.UserService;
-import practice.LegacyVendingMachine.ver0.view.AdminView;
-import practice.LegacyVendingMachine.ver0.view.UserView;
+import practice.LegacyVendingMachine.try1.service.AdminService;
+import practice.LegacyVendingMachine.try1.service.UserService;
+import practice.LegacyVendingMachine.try1.view.AdminView;
+import practice.LegacyVendingMachine.try1.view.UserView;
 
 public class Main {
     public static void main(String[] args) {

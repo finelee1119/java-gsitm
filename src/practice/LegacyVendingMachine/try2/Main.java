@@ -1,9 +1,9 @@
-package practice.LegacyVendingMachine.ver1;
+package practice.LegacyVendingMachine.try2;
 
-import practice.LegacyVendingMachine.ver1.service.AdminService;
-import practice.LegacyVendingMachine.ver1.service.UserService;
-import practice.LegacyVendingMachine.ver1.view.AdminView;
-import practice.LegacyVendingMachine.ver1.view.UserView;
+import practice.LegacyVendingMachine.try2.service.AdminService;
+import practice.LegacyVendingMachine.try2.service.UserService;
+import practice.LegacyVendingMachine.try2.view.AdminView;
+import practice.LegacyVendingMachine.try2.view.UserView;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class Main {
         Initialize.initializeMenu();
 
         // 사용자 뷰 및 서비스 인스턴스 생성
-        UserView userView = new UserView();
+        //UserView userView = new UserView();
         UserService userService = new UserService();
 
         // 관리자 뷰 및 서비스 인스턴스 생성
@@ -20,7 +20,7 @@ public class Main {
         AdminService adminService = new AdminService();
 
         // 사용자 뷰 실행
-        userView.userView();
+        //userView.userView();
 
         // 관리자 뷰 실행
         adminView.adminView();

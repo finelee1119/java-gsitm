@@ -1,4 +1,4 @@
-package practice.LegacyVendingMachine.ver0.view;
+package practice.LegacyVendingMachine.try1.view;
 
 public class AdminView {
     public static final int MAX_PRODUCTS = 5; // 자판기에서 판매할 최대 제품 수

@@ -1,4 +1,4 @@
-package practice.LegacyVendingMachine.ver1;
+package practice.LegacyVendingMachine.try2;
 
 public class Initialize {
     //멤버변수

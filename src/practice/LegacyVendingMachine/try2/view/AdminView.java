@@ -1,4 +1,4 @@
-package practice.LegacyVendingMachine.ver1.view;
+package practice.LegacyVendingMachine.try2.view;
 
 public class AdminView {
 

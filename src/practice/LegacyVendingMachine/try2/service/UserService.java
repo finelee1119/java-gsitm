@@ -1,8 +1,8 @@
-package practice.LegacyVendingMachine.ver1.service;
+package practice.LegacyVendingMachine.try2.service;
 
 import java.util.Scanner;
-import practice.LegacyVendingMachine.ver1.view.UserView;
-import static practice.LegacyVendingMachine.ver1.Initialize.*;
+import practice.LegacyVendingMachine.try2.view.UserView;
+import static practice.LegacyVendingMachine.try2.Initialize.*;
 
 public class UserService {
 

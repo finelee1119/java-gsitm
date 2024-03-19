@@ -1,4 +1,4 @@
-package practice.LegacyVendingMachine;
+package practice.LegacyVendingMachine.try0;
 
 import java.util.Scanner;
 

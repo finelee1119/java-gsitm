@@ -1,6 +1,4 @@
-package practice.LegacyVendingMachine.ver0.view;
-
-import practice.LegacyVendingMachine.ver0.service.UserService;
+package practice.LegacyVendingMachine.try1.view;
 
 public class UserView {
     AdminView adminView = new AdminView();
