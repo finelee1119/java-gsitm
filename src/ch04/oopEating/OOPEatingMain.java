@@ -7,8 +7,10 @@ import ch04.oopEating.meat.*;
 public class OOPEatingMain {
     public static void main(String[] args) {
         VegeEater woman1 = new VegeEater();
-        Fruit orange = new Orange();
+        Fruit apple = new Apple();
+        ((Apple)apple).wow();
         woman1.vegetableEat(new Orange());
+
 
         MeatEater man1 = new MeatEater(new Chicken());
         man1.meatEat();

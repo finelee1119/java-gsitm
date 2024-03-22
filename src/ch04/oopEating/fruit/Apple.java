@@ -10,4 +10,8 @@ public class Apple extends Fruit {
     public void eat() {
         System.out.println(taste + "의 " + name + "를 먹어요.");
     }
+
+    public void wow() {
+        System.out.println("아이셔! 사과");
+    }
 }
