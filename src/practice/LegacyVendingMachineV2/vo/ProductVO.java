@@ -1,7 +1,6 @@
 package practice.LegacyVendingMachineV2.vo;
 
 public class ProductVO {
-
     private String drinkName;
     private int drinkPrice;
     private int drinkStock;
@@ -10,6 +9,10 @@ public class ProductVO {
         this.drinkName = drinkName;
         this.drinkPrice = drinkPrice;
         this.drinkStock = drinkStock;
+    }
+
+    public static ProductVO of(String drinkName, int drinkPrice, int drinkStock) {
+        return new ProductVO(drinkName, drinkPrice, drinkStock);
     }
 
     public String getDrinkName() {
