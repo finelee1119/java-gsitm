@@ -1,0 +1,4 @@
+package miniProject.LegacyVendingMachine.try1.service;
+
+public class AdminService {
+}
