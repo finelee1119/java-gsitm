@@ -10,11 +10,9 @@ import java.util.Scanner;
 public class TelAppMain {
     public static void main(String[] args) throws Exception {
         //Connection conn = DBConn.getConnection();
-
         Scanner scanner = new Scanner(System.in);
         TelBookService service = new TelBookService();
         UserView userView = new UserView();
-
 
         int ch = 0;
         while (true) {
@@ -35,22 +33,25 @@ public class TelAppMain {
 //                    dto.setTelNum("010-0000-1111");
 //                    result = service.inserData(dto);
 
-                    userView.insert();
+                    try {
+                        userView.insert();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
                 case 2:
-                    System.out.println("2.수정");
+                    userView.update();
                     break;
                 case 3:
-                    System.out.println("3.삭제");
+                    userView.delete();
                     break;
                 case 4:
-                    System.out.println("4.전체출력");
+                    userView.searchAll();
                     break;
                 case 5:
-                    System.out.println("5.아이디검색");
+                    userView.searchOne();
                     break;
                 case 6:
-                    System.out.println("6.종료");
                     DBConn.close(); // 문 닫기
                     System.exit(0); // 프로그램 종료
             }

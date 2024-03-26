@@ -28,6 +28,10 @@ public class TelDTO {
         return new TelDTO(name, age, address, telNum);
     }
 
+    public static TelDTO allOf(int id, String name, int age, String address, String telNum) {
+        return new TelDTO(id, name, age, address, telNum);
+    }
+
     public int getId() {
         return id;
     }
@@ -70,12 +74,8 @@ public class TelDTO {
 
     @Override
     public String toString() {
-        return "TelDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\'' +
-                ", telNum='" + telNum + '\'' +
-                '}';
+        String str;
+        str = String.format("%d \t %s \t %d \t %s \t %s \t ", id, name, age, address, telNum);
+        return str;
     }
 }

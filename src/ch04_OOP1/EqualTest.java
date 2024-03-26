@@ -1,4 +1,6 @@
-package ch06;
+package ch04_OOP1;
+
+import ch04_OOP1.Person;
 
 public class EqualTest {
     public static void main(String[] args) {
