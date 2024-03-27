@@ -1,6 +1,5 @@
 package dbConnect.telApp.service;
 
-import com.mysql.cj.protocol.Resultset;
 import dbConnect.telApp.db.DBConn;
 import dbConnect.telApp.dto.TelDTO;
 

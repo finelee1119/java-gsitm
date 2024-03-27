@@ -1,38 +1,24 @@
 package dbConnect.telApp;
 
 import dbConnect.telApp.db.DBConn;
-import dbConnect.telApp.dto.TelDTO;
-import dbConnect.telApp.service.TelBookService;
 import dbConnect.telApp.view.UserView;
-
 import java.util.Scanner;
 
 public class TelAppMain {
     public static void main(String[] args) throws Exception {
-        //Connection conn = DBConn.getConnection();
-        Scanner scanner = new Scanner(System.in);
-        TelBookService service = new TelBookService();
         UserView userView = new UserView();
+        Scanner scanner = new Scanner(System.in);
 
         int ch = 0;
         while (true) {
             do {
                 System.out.println("1.입력 2.수정 3.삭제 4.전체출력 5.아이디검색 6.종료");
-                System.out.println("================================================");
+                System.out.println("======================================================");
                 ch = scanner.nextInt();
             } while (ch < 0 || ch > 6);
 
             switch (ch) {
                 case 1:
-//                    int result;
-//                    System.out.println("1.입력");
-//                    TelDTO dto = new TelDTO();
-//                    dto.setName("파이리");
-//                    dto.setAge(30);
-//                    dto.setAddress("일산");
-//                    dto.setTelNum("010-0000-1111");
-//                    result = service.inserData(dto);
-
                     try {
                         userView.insert();
                     } catch (Exception e) {

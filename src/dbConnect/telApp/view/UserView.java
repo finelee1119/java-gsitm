@@ -5,9 +5,6 @@ import dbConnect.telApp.exception.InputValidation;
 import dbConnect.telApp.exception.MyException;
 import dbConnect.telApp.service.TelBookService;
 
-import javax.xml.stream.events.DTD;
-import java.sql.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
