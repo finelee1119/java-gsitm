@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         UserView userView = new UserView();
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -24,13 +23,10 @@ public class Main {
                     break;
                 case 2:
                     userView.signInView();
-
-//                    if (id != null) {
-//                        userView.chargeView(id);
-//                    }
                     break;
                 case 3:
                     DBConn.close();
+                    System.out.println("첫 화면으로 돌아갑니다.");
                     break;
             }
         }

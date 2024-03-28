@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserService {
+
     public int signUpService(UserDto userDto) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt = null;
@@ -32,11 +33,13 @@ public class UserService {
         return result;
     }
 
-    public UserDto signInService(String id, String pw) {
+
+    public boolean signInService(String id, String pw) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt = null;
         ResultSet rs = null;
         UserDto userDto = null;
+        boolean signInYes = false;
 
         try {
             String query = "SELECT pw FROM user WHERE id = ?";
@@ -47,9 +50,7 @@ public class UserService {
             if (rs.next()) {
                 String pwFromDB = rs.getString("pw");
                 if (pwFromDB.equals(pw)) {
-                    System.out.println("로그인에 성공했습니다.");
-                } else {
-                    System.out.println("로그인에 실패했습니다.");
+                    signInYes = true;
                 }
             }
 
@@ -60,10 +61,51 @@ public class UserService {
             System.out.println(e.getMessage());
         }
 
-        return userDto;
+        return signInYes;
     }
 
-    public int getBalance(String id) throws SQLException {
+
+    public int updateBalance(String id, int amount) {
+        Connection conn = DBConn.getConnection();
+        PreparedStatement psmt = null;
+        ResultSet rs = null;
+        int currentBalance = 0;
+        int newBalance = 0;
+
+        try {
+            // 현재 잔액 조회
+            String selectQuery = "SELECT balance FROM user WHERE id = ?";
+            psmt = conn.prepareStatement(selectQuery);
+            psmt.setString(1, id);
+            rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                currentBalance = rs.getInt("balance");
+            }
+
+            // 새로운 잔액 계산
+            newBalance = currentBalance + amount;
+
+            // 잔액 업데이트
+            String updateQuery = "UPDATE user SET balance = ? WHERE id = ?";
+            psmt = conn.prepareStatement(updateQuery);
+            psmt.setInt(1, newBalance);
+            psmt.setString(2, id);
+            psmt.executeUpdate();
+
+            // 닫기
+            psmt.executeUpdate();
+            psmt.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return newBalance;
+    }
+
+
+    public int getBalance(String id) {
         Connection conn = DBConn.getConnection();
         PreparedStatement psmt = null;
         ResultSet rs = null;
@@ -79,6 +121,7 @@ public class UserService {
             if (rs.next()) {
                 balance = rs.getInt("balance");
             }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -87,7 +130,42 @@ public class UserService {
     }
 
 
+    public int returnAllBalance(String id) {
+        Connection conn = DBConn.getConnection();
+        PreparedStatement psmt = null;
+        ResultSet rs = null;
+        int currentBalance = 0;
+        int newBalance = 0;
 
+        try {
+            // 현재 잔액 조회
+            String selectQuery = "SELECT balance FROM user WHERE id = ?";
+            psmt = conn.prepareStatement(selectQuery);
+            psmt.setString(1, id);
+            rs = psmt.executeQuery();
 
+            if (rs.next()) {
+                currentBalance = rs.getInt("balance");
+            }
 
+            // 전액 환불 계산
+            newBalance = currentBalance - currentBalance;
+
+            // 잔액 업데이트
+            String updateQuery = "UPDATE user SET balance = ? WHERE id = ?";
+            psmt = conn.prepareStatement(updateQuery);
+            psmt.setInt(1, newBalance);
+            psmt.setString(2, id);
+            psmt.executeUpdate();
+
+            // 닫기
+            psmt.executeUpdate();
+            psmt.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return newBalance;
+    }
 }
