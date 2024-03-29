@@ -10,6 +10,12 @@ public record ProductDto(int productId, String productName, int price, int stock
         return new ProductDto(0, productName,price,stock);
     }
 
+    //제품명, 판매수량, 판매금액, 맨 아래에 총 판매금액 출력
+    public static ProductDto productSalesOf(String productName, int price) {
+        return new ProductDto(0, productName, price, 0);
+    }
+
+
     public static ProductDto stockOf(int stock) {
         return new ProductDto(0, null,0,stock);
     }

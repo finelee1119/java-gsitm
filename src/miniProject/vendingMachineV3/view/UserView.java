@@ -2,6 +2,7 @@ package miniProject.vendingMachineV3.view;
 
 import dbConnect.telApp_1.view.PrintTitle;
 import miniProject.vendingMachineV3.dto.ProductDto;
+import miniProject.vendingMachineV3.dto.SalesDto;
 import miniProject.vendingMachineV3.dto.UserDto;
 import miniProject.vendingMachineV3.service.ManagerService;
 import miniProject.vendingMachineV3.service.UserService;
@@ -134,8 +135,13 @@ public class UserView {
                                 productDto.productName(),
                                 productDto.price(),
                                 productDto.stock() - 1
-                        ));
+                        )
+                );
                 System.out.println(productDto.productName() + " 나왔습니다. 잔액: " + userService.getBalance(id));
+
+                // 자판기의 판매금액이 제품 가격만큼 누적되어 증가된다.
+                // 자판기의 판매수량이 1개 누적되어 증가된다.
+                //managerService.updateSalesData(new SalesDto(productId, userId));
 
             } else {
                 System.out.println("해당 제품을 구입할 수 없습니다.");
@@ -143,7 +149,6 @@ public class UserView {
         } else {
             System.out.println("해당 제품이 존재하지 않습니다.");
         }
-
     }
 
     public void returnAllBalanceView(String id) {

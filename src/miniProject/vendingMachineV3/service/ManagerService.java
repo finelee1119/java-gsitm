@@ -2,6 +2,7 @@ package miniProject.vendingMachineV3.service;
 
 import miniProject.vendingMachineV3.db.DBConn;
 import miniProject.vendingMachineV3.dto.ProductDto;
+import miniProject.vendingMachineV3.dto.SalesDto;
 import miniProject.vendingMachineV3.dto.UserDto;
 
 import java.sql.Connection;
@@ -245,14 +246,104 @@ public class ManagerService {
     }
 
     ///////////////////////////////////////////////////////////////////
-    // 제품별 판매현황 조회
-    public void showProductSalesData(){
+    public void updateSalesData(SalesDto salesDto){
+        Connection conn = DBConn.getConnection();
+        PreparedStatement psmt = null;
+        int result = 0;
+        try {
+            String query = "INSERT INTO sales (product_id, user_id) VALUES (?, ?)";
+            psmt = conn.prepareStatement(query);
+
+            psmt.setInt(1, salesDto.productId());
+            psmt.setString(2, salesDto.userId());
+
+            result = psmt.executeUpdate();
+            psmt.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
+
+    public SalesDto showProductSalesData() {
+        Connection conn = null;
+        PreparedStatement psmt = null;
+        ResultSet rs = null;
+        SalesDto salesDto = new SalesDto(0, null); // SalesDto 객체 초기화
+
+        try {
+            conn = DBConn.getConnection();
+            String query = "SELECT p.product_name, COUNT(s.sales_id) AS 제품별판매수량, SUM(p.price) AS 제품별판매금액\n" +
+                    "FROM sales s\n" +
+                    "JOIN product p ON s.product_id = p.product_id\n" +
+                    "GROUP BY p.product_id, p.product_name";
+            psmt = conn.prepareStatement(query);
+
+            rs = psmt.executeQuery();
+
+            while (rs.next()) {
+                String productName = rs.getString("product_name");
+                int salesId = rs.getInt("제품별판매수량"); // 판매수량 가져오는 부분
+                int totalPrice = rs.getInt("제품별판매금액"); // 판매금액 가져오는 부분
+
+                // SalesDto 객체에 데이터 설정
+                salesDto = new SalesDto(salesDto.productId(), salesDto.userId()); // 여기서 0은 productId로 설정하는 부분입니다.
+            }
+            psmt.close();
+            rs.close();
+            return salesDto;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+//    public SalesDto showProductSalesData(){
+//        //제품명, 판매수량, 판매금액, 맨 아래에 총 판매금액 출력
+//        Connection conn = DBConn.getConnection();
+//        PreparedStatement psmt = null;
+//        ResultSet rs = null;
+//        ProductDto productDto = null;
+//        SalesDto salesDto =  null;
+//
+//        try {
+//            String query = "SELECT p.product_name, COUNT(s.sales_id) AS 제품별판매수량, SUM(p.price) AS 제품별판매금액\n" +
+//                    "FROM sales s\n" +
+//                    "JOIN product p ON s.product_id = p.product_id\n" +
+//                    "GROUP BY p.product_id, p.product_name";
+//            psmt = conn.prepareStatement(query);
+//
+//            psmt.setString(1, productDto.productName());
+//            psmt.setInt(2, salesDto.salesId());
+//            psmt.setInt(3, productDto.price());
+//            psmt.setInt(4, salesDto.productId());
+//            psmt.setInt(5, productDto.productId());
+//            psmt.setInt(6, productDto.productId());
+//            psmt.setString(7, productDto.productName());
+//
+//            rs = psmt.executeQuery();
+//
+//            while (rs.next()) {
+//                salesDto = salesDto.allOf(
+//                        rs.getInt("id"),
+//                        rs.getInt("product_id"),
+//                        rs.getString("user_id")
+//                );
+//            }
+//            psmt.close();
+//            rs.close();
+//            return salesDto;
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
     // 회원별 판매현황 조회
     public void showUserSalesData(){
-
+        //회원아이디, 회원명, 구매금액, 충전잔액
     }
 
 
